@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyxll-openbb"
+version = "0.0.1"
+authors = [
+  { name="Tony Roberts", email="tony@pyxll.com" },
+]
+description = "PyXLL wrappers for OpenBB SDK v4"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    #"pyxll >= 5.6.4",
+    #"openbb >= 4.0.0"
+]
+
+[project.entry-points.pyxll]
+modules = "pyxll_openbb.pyxll_entrypoints:modules"
