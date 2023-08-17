@@ -8,6 +8,6 @@ def modules():
     generate_wrappers(force=False)
 
     return [
-        "pyxll_openbb.wrappers",
-        "pyxll_openbb.commands"
+        "pyxll_openbb.obbject",
+        "pyxll_openbb.wrappers"
     ]
