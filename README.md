@@ -13,3 +13,7 @@ SDK functions to Excel.
 - PyXLL >= 5.6.4
 - OpenBB SDK >= 4.0.0
 
+## Video
+
+[![OpenBB in Excel](https://img.youtube.com/vi/UG7rdoCh734/0.jpg)](https://www.youtube.com/watch?v=UG7rdoCh734)
+
