@@ -17,7 +17,7 @@ classifiers = [
 ]
 dependencies = [
     "pyxll >= 5.6.4",
-    "openbb-sdk >= 4.0.0"
+    "openbb>=4.0.0a"
 ]
 
 [project.entry-points.pyxll]

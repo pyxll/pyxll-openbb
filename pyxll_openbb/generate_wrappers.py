@@ -16,7 +16,7 @@ _log = logging.getLogger(__name__)
 def _get_type_signature(annotation):
     """Return the PyXLL type signature for a type based on a type annotation"""
     if annotation is pd.DataFrame:
-        return "pandas.dataframe<index=True>"
+        return "obb.DataFrame<index=True>"
     elif annotation is pd.Series:
         return "pandas.series<index=True>"
     elif annotation is dt.date:
@@ -48,8 +48,12 @@ def _get_type_signature(annotation):
         if types:
             if len(types) < len(args):
                 types.append("var")
-            return f"union<{', '.join(types)}>"
 
+            # Sort so var types always appear last
+            indices = {t: i for i, t in enumerate(types)}
+            types = sorted(set(types), key=lambda x: len(types) if x.startswith("var") else indices[x])
+
+            return f"union<{', '.join(types)}>"
 
 def _generate_wrapper_for_function(func, path, wrapped=None):
     if wrapped is None:
@@ -133,6 +137,10 @@ def generate_wrappers(force: bool = False) -> str:
     """Create the OpenBB wrapper functions that are used
     to call the API from Excel.
     """
+    if "pyxll_openbb.wrappers" in sys.modules:
+        _log.debug("pyxll_openbb.wrappers already exists")
+        return sys.modules["pyxll_openbb.wrappers"]
+
     # Look for the wrappers to see if they already exist
     path = os.path.join(os.path.dirname(__file__), "wrappers.py")
     wrappers_source = None
@@ -168,6 +176,7 @@ import datetime
 
     # Load the module from the source (which may or may not be saved)
     module = types.ModuleType("pyxll_openbb.wrappers")
+    module.__file__ = path
     try:
         exec(wrappers_source, module.__dict__)
     except:
