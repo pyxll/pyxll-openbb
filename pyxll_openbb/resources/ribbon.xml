@@ -1,0 +1,17 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+    <ribbon>
+        <tabs>
+            <tab id="PyXLLOpenBB" label="OpenBB">
+                <group id="OpenBBGroup" label="OpenBB">
+                    <button id="PyXLLOpenBBUpdateWrappers"
+                        label="Update Wrappers"
+                        onAction="pyxll_openbb.ribbon.update_wrappers"
+                        screentip="Update OpenBB wrapper functions. Use after pip installing OpenBB modules or updating OpenBB Platform."
+                        size="large"
+                        image="pyxll_openbb:resources/update.png"
+                        />
+                </group>
+            </tab>
+        </tabs>
+    </ribbon>
+</customUI>

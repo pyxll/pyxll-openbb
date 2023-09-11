@@ -21,4 +21,12 @@ dependencies = [
 ]
 
 [project.entry-points.pyxll]
-modules = "pyxll_openbb.pyxll_entrypoints:modules"
+modules = "pyxll_openbb.pyxll:modules"
+ribbon = "pyxll_openbb.pyxll:ribbon"
+
+
+[tool.setuptools.package-data]
+pyxll_openbb = [
+  "pyxll_openbb/resources/*.xml",
+  "pyxll_openbb/resources/*.png"
+]

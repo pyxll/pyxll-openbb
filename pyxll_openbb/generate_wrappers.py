@@ -137,7 +137,7 @@ def generate_wrappers(force: bool = False) -> str:
     """Create the OpenBB wrapper functions that are used
     to call the API from Excel.
     """
-    if "pyxll_openbb.wrappers" in sys.modules:
+    if not force and "pyxll_openbb.wrappers" in sys.modules:
         _log.debug("pyxll_openbb.wrappers already exists")
         return sys.modules["pyxll_openbb.wrappers"]
 
