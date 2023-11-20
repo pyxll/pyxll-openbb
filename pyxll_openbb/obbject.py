@@ -34,10 +34,6 @@ def obbject_to_chart(result: OBBject):
 
 @xl_arg_type("obb.DataFrame", "union<var[][], object>")
 def dataframe_from_xl_arg(arg, index=None):
-    print("dataframe_from_xl_arg called")
-    print(arg)
-    print(type(arg))
-
     if isinstance(arg, OBBject):
         return arg.to_dataframe()
 
